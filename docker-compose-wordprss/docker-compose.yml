@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - 8080:80
+    volumes:
+      - wordpress_volumen:/var/www/html
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: yeray
+      WORDPRESS_DB_PASSWORD: yeray
+      WORDPRESS_DB_NAME: ejemplodb
+
+  db:
+    image: mysql:latest
+    volumes: 
+      - db_data_volumen:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: yeray_root
+      MYSQL_DATABASE: ejemplodb
+      MYSQL_USER: yeray
+      MYSQL_PASSWORD: yeray
+
+volumes:
+  wordpress_volumen:
+  db_data_volumen:

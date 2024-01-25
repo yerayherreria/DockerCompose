@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  postgresql:
+    image: 'postgres:latest'
+    container_name: postgresql_nextcloud
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: 'ejemplodb'
+      POSTGRES_USER: 'jesus'
+      POSTGRES_PASSWORD: 'jesuspass'
+
+  nextcloud:
+    image: 'nextcloud:latest'
+    container_name: nextcloud
+    ports:
+      - '8080:80'
+    volumes:
+      - nextcloud_data:/var/www/html
+    environment:
+      POSTGRES_HOST: 'postgresql'
+      POSTGRES_DB: 'ejemplodb'
+      POSTGRES_USER: 'jesus'
+      POSTGRES_PASSWORD: 'jesuspass'
+
+volumes:
+  postgresql_data:
+    driver: local
+  nextcloud_data:
+    driver: local
