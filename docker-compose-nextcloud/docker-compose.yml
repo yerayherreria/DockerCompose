@@ -8,8 +8,8 @@ services:
       - postgresql_data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: 'ejemplodb'
-      POSTGRES_USER: 'jesus'
-      POSTGRES_PASSWORD: 'jesuspass'
+      POSTGRES_USER: 'yeray'
+      POSTGRES_PASSWORD: 'yeraypass'
 
   nextcloud:
     image: 'nextcloud:latest'
@@ -21,8 +21,8 @@ services:
     environment:
       POSTGRES_HOST: 'postgresql'
       POSTGRES_DB: 'ejemplodb'
-      POSTGRES_USER: 'jesus'
-      POSTGRES_PASSWORD: 'jesuspass'
+      POSTGRES_USER: 'yeray'
+      POSTGRES_PASSWORD: 'yeraypass'
 
 volumes:
   postgresql_data:
